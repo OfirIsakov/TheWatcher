@@ -9,7 +9,7 @@ Scoot around in a sea of scraped publicly opened servers that host your favorite
 Back:
 ```bash
 $ cd ./Back
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 $ python3 main.py
 ```
 
