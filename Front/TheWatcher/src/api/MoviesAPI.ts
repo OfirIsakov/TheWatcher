@@ -1,10 +1,8 @@
 import useSWR from 'swr'
-import {Movie} from "../App.tsx";
-import {useState} from "react";
+import {Movie} from "../types/movie.ts";
 
 
 export function UseMovies() {
-    const [movies, setMovies] = useState<Movie[]>();
     const {
         data,
         isLoading

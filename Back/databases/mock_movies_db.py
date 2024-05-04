@@ -28,7 +28,7 @@ MOCK_DATA: list[Movie] = [Movie(
     Movie(
         id='4',
         name='Example4',
-        ip='4.4.4.4/',
+        ip='4.4.4.4',
         country_code='hu',
         url='http://4.4.4.4/movie/Example4.mkv',
         ping='6666'
