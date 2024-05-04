@@ -6,15 +6,19 @@ import {AutoComplete} from "primereact/autocomplete";
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import countries from "../public/countires.ts";
+import {UseMovies} from "./api/MoviesAPI.ts";
 
-
-interface Data {
+export interface Movie {
     id: string;
     name: string;
     ip: string;
     country_code: string;
     url: string;
     ping: string
+}
+
+export interface MoviesResponse {
+    movies: Movie[]
 }
 
 function App() {
@@ -45,19 +49,9 @@ function App() {
     </div>
 
 
-    const [dataa, setDataa] = useState<Data[]>([]);
-    useEffect(() => {
-        setDataa([{
-            id: '1000',
-            name: 'Example',
-            ip: '1.1.1.1',
-            country_code: 'il',
-            url: 'http://1.1.1.1/movie/Example.mkv',
-            ping: '6'
-        }]);
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    const [dataa, isLoading] = UseMovies();
 
-    const countryBodyTemplate = (rowData: Data) => {
+    const countryBodyTemplate = (rowData: Movie) => {
         return (
             <div className="flex align-items-center gap-2">
                 <img alt="flag"
@@ -74,7 +68,7 @@ function App() {
             <Toolbar start={cameraIcon} center={searchBox}/>
             <DataTable value={dataa} dataKey="id" paginator rows={15}
                        rowsPerPageOptions={[5, 10, 15, 25, 50]}
-                       tableStyle={{minWidth: '50rem'}}
+                       tableStyle={{minWidth: '50rem'}} loading={isLoading}
                        paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
                        currentPageReportTemplate="{first} to {last} of {totalRecords}">
                 <Column key="name" field="name" header="Movie Name"/>
