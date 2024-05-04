@@ -1,12 +1,10 @@
 import time
 
 from fastapi import FastAPI
-from starlette.responses import JSONResponse
-from uvicorn import run as uvicorn_run
 from fastapi.middleware.cors import CORSMiddleware
+from uvicorn import run as uvicorn_run
 
 from databases.mock_movies_db import MockMoviesDB
-from movie import Movie
 
 app = FastAPI()
 

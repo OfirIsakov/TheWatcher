@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from movie import Movie
+from models.movie import Movie
 
 
 class MoviesDB(ABC):

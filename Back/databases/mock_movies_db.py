@@ -1,5 +1,6 @@
+
 from databases.movies_db import MoviesDB
-from movie import Movie
+from models.movie import Movie
 
 MOCK_DATA: list[Movie] = [Movie(
     id='1',
